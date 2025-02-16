@@ -5,6 +5,7 @@
 /// Complete the following functions
 /// DO NOT modify any parameters in the functions.
 ////////////////////////////////////////////////////////////////////////
+
 void mod_value(int arr[], int up_range){
   for (int i = 0; i< 17; i++){
     if (arr[i] > up_range) arr[i]= up_range;
@@ -72,6 +73,7 @@ string Caesar_Cipher(string ques)
 return ques;
 }
 
+
 const int MAX_LINES = 5;         
 const int MAX_LINE_LENGTH = 100;
 
@@ -102,17 +104,39 @@ bool readFile(
     return false;
   }
 
-  // TODO: Extract values from the `data` array and store them in respective variables
-  for (int i = 0; i< 17; i++){
-    if(data[0][i] > 0)
-    LF1[i] = (data[0][i]);
-    LF2[i] = (data[1][i]);
-  }
-  EXP1 = data[2][0];
-  EXP2 = data[2][1];
-  T1 = data[3][0];
-  T2 = data[3][1];
-  E = data[4][0];
+   // Parse first line into LF1
+   string line1(data[0]);
+   line1 = line1.substr(1, line1.size() - 2); // Remove brackets
+   stringstream ss1(line1);
+   string token;
+   int index = 0;
+   while (getline(ss1, token, ','))
+   {
+     LF1[index++] = stoi(token);
+   }
+ 
+   // Parse second line into LF2
+   string line2(data[1]);
+   line2 = line2.substr(1, line2.size() - 2); // Remove brackets
+   stringstream ss2(line2);
+   index = 0;
+   while (getline(ss2, token, ','))
+   {
+     LF2[index++] = stoi(token);
+   }
+
+  // Parse third line for EXP1 and EXP2
+  stringstream ss3(data[2]);
+  ss3 >> EXP1 >> EXP2;
+
+  // Parse fourth line for T1 and T2
+  stringstream ss4(data[3]);
+  ss4 >> T1 >> T2;
+
+  // Parse fifth line for E
+  stringstream ss5(data[4]);
+  ss5 >> E;
+
   return true;
 }
 
