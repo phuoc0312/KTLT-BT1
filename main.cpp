@@ -14,9 +14,6 @@ using namespace std;
 
 void tnc_tc_01() {
     cout << "----- Sample Testcase 01 -----" << endl;
-    cout << "----- Sample Testcase 01 -----" << endl;
-    cout << "----- Sample Testcase 01 -----" << endl;
-    cout << "----- Sample Testcase 01 -----" << endl;
     string input_file("tnc_tc_01_input");
     int LF1[17], LF2[17], EXP1, EXP2, T1, T2, E;
     // if (!readFile(input_file, LF1, LF2, EXP1, EXP2, T1, T2, E)) {
